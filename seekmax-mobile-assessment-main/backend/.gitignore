@@ -1,0 +1,4 @@
+rest/dist/*
+rest/node_modules/*
+graphql/dist/*
+graphql/node_modules/*

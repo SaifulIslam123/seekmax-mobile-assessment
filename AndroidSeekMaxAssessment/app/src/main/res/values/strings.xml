@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">SeekMax Mobile App</string>
+    <string name="title_activity_compose_main">@string/app_name</string>
+</resources>

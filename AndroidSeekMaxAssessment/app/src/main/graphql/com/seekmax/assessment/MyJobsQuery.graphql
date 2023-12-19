@@ -1,0 +1,7 @@
+query MyJobs($limit: Int, $page: Int) {
+    myJobs(limit: $limit, page: $page) {
+        jobs {
+            ...JobInfo
+        }
+    }
+}

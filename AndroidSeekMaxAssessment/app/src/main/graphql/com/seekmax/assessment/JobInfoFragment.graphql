@@ -1,0 +1,10 @@
+fragment JobInfo on Job{
+    _id
+    positionTitle
+    description
+    industry
+    haveIApplied
+    company {
+        name
+    }
+}

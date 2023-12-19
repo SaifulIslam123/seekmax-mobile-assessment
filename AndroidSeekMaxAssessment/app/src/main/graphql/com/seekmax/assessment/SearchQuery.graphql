@@ -1,0 +1,7 @@
+query Search($term: String!, $limit: Int, $page: Int) {
+    search(term: $term, limit: $limit, page: $page) {
+        jobs {
+            ...JobInfo
+        }
+    }
+}

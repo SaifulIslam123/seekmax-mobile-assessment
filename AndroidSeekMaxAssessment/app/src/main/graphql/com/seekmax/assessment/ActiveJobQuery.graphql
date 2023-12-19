@@ -1,0 +1,7 @@
+query Active($limit: Int, $page: Int) {
+    active (limit: $limit, page: $page) {
+        jobs {
+            ...JobInfo
+        }
+    }
+}
