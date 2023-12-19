@@ -36,7 +36,7 @@ sealed class BottomNavigationScreens(
     object Profile :
         BottomNavigationScreens(route = "profile", name = "PROFILE")
 
-    object Login : BottomNavigationScreens(route = "login", name = "Login")
+    object Login : BottomNavigationScreens(route = "login", name = "LOGIN")
     object JobDetail :
         BottomNavigationScreens("$JOB_DETAIL/{$JOB_ID}")
 

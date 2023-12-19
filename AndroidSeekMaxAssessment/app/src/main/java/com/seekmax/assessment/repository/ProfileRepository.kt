@@ -1,22 +1,17 @@
-package com.seekmax.assessment.ui.screen.profile
+package com.seekmax.assessment.repository
 
 import android.content.SharedPreferences
-import com.apollographql.apollo3.ApolloCall
 import com.apollographql.apollo3.ApolloClient
-import com.apollographql.apollo3.api.Mutation
-import com.apollographql.apollo3.api.Operation
 import com.apollographql.apollo3.exception.ApolloException
 import com.seekmax.assessment.ERROR_MESSAGE
 import com.seekmax.assessment.USER_NAME
 import com.seekmax.assessment.UpdatePasswordMutation
 import com.seekmax.assessment.UpdateUsernameMutation
-import com.seekmax.assessment.repository.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import retrofit2.Response
 import javax.inject.Inject
 
 class ProfileRepository @Inject constructor(

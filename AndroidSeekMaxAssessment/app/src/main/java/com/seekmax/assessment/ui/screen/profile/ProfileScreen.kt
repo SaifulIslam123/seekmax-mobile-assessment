@@ -33,16 +33,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.seekmax.assessment.R
 import com.seekmax.assessment.RELOAD_DATA
 import com.seekmax.assessment.repository.NetworkResult
-import com.seekmax.assessment.ui.ProgressHelper
-import com.seekmax.assessment.ui.component.NonLoginView
+import com.seekmax.assessment.ui.component.ProgressHelper
+import com.seekmax.assessment.ui.component.LoginUi
 import com.seekmax.assessment.ui.theme.button
 
 @Composable
@@ -50,11 +52,11 @@ fun ProfileScreen(navController: NavController) {
 
     val viewModel: ProfileViewModel = hiltViewModel()
     val loginStateFlow by viewModel.loginSateFlow.collectAsStateWithLifecycle()
-    if (loginStateFlow) ProfileView(navController, viewModel) else NonLoginView(navController)
+    if (loginStateFlow) ProfileUi(navController, viewModel) else LoginUi(navController)
 }
 
 @Composable
-fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
+fun ProfileUi(navController: NavController, viewModel: ProfileViewModel) {
 
     var displayNameState by remember { mutableStateOf(viewModel.presentUserName()) }
     var updateNameState by remember { mutableStateOf("") }
@@ -62,6 +64,8 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
     var confirmPasswordState by remember { mutableStateOf("") }
     val scrollState = rememberScrollState()
     val context = LocalContext.current
+    val userNameUpdateMsg = stringResource(id = R.string.username_update_message)
+    val passwordChangeMsg = stringResource(id = R.string.password_change_message)
 
     LaunchedEffect(viewModel.userNameSateFlow) {
         viewModel.userNameSateFlow.collect {
@@ -74,7 +78,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                     ProgressHelper.dismissDialog()
                     Toast.makeText(
                         context,
-                        "User name update successful",
+                        userNameUpdateMsg,
                         Toast.LENGTH_LONG
                     ).show()
                     displayNameState = it.data.toString()
@@ -98,7 +102,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
 
                 is NetworkResult.Success -> {
                     ProgressHelper.dismissDialog()
-                    Toast.makeText(context, "Password change successful", Toast.LENGTH_LONG)
+                    Toast.makeText(context, passwordChangeMsg, Toast.LENGTH_LONG)
                         .show()
                 }
 
@@ -145,7 +149,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
 
         }
         Text(
-            text = "Update Name",
+            text = stringResource(id = R.string.username_title),
             modifier = Modifier.padding(top = 20.dp),
             style = MaterialTheme.typography.h6
         )
@@ -155,7 +159,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                 .padding(top = 10.dp),
             value = updateNameState,
             onValueChange = { updateNameState = it },
-            placeholder = { Text(text = "Enter Name") })
+            placeholder = { Text(text = stringResource(id = R.string.username_hint)) })
         Button(
             onClick = { viewModel.updateUserName(updateNameState) },
             enabled = updateNameState.isNotEmpty(),
@@ -165,10 +169,10 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                 .padding(top = 16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = button)
         ) {
-            Text("UPDATE NAME", color = Color.White)
+            Text(stringResource(id = R.string.username_btn_text), color = Color.White)
         }
         Text(
-            text = "Update password",
+            text = stringResource(id = R.string.update_password_title),
             modifier = Modifier.padding(top = 30.dp),
             style = MaterialTheme.typography.h6
         )
@@ -191,7 +195,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                 .padding(top = 10.dp),
             value = newPasswordState,
             onValueChange = { newPasswordState = it },
-            placeholder = { Text(text = "Enter New password") })
+            placeholder = { Text(text = stringResource(id = R.string.new_password_hint)) })
         var confirmPasswordVisibility: Boolean by remember { mutableStateOf(false) }
         TextField(
             visualTransformation = if (confirmPasswordVisibility) VisualTransformation.None else PasswordVisualTransformation(),
@@ -211,7 +215,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                 .padding(top = 10.dp),
             value = confirmPasswordState,
             onValueChange = { confirmPasswordState = it },
-            placeholder = { Text(text = "Enter Confirm password") })
+            placeholder = { Text(text = stringResource(id = R.string.confirm_password_hint)) })
         Button(
             onClick = { viewModel.updatePassword(newPasswordState) },
             enabled = isValidPassword(),
@@ -221,7 +225,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                 .padding(top = 16.dp),
             colors = ButtonDefaults.buttonColors(containerColor = button)
         ) {
-            Text("UPDATE PASSWORD", color = Color.White)
+            Text(stringResource(id = R.string.update_password_btn_text), color = Color.White)
         }
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
             Button(
@@ -238,7 +242,7 @@ fun ProfileView(navController: NavController, viewModel: ProfileViewModel) {
                     .padding(top = 20.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
             ) {
-                Text("LOGOUT", color = Color.White)
+                Text(stringResource(id = R.string.logout), color = Color.White)
             }
         }
 

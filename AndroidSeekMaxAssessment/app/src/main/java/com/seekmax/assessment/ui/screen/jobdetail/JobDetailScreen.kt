@@ -30,6 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -40,7 +41,7 @@ import com.seekmax.assessment.JobQuery
 import com.seekmax.assessment.R
 import com.seekmax.assessment.RELOAD_DATA
 import com.seekmax.assessment.repository.NetworkResult
-import com.seekmax.assessment.ui.ProgressHelper
+import com.seekmax.assessment.ui.component.ProgressHelper
 import com.seekmax.assessment.ui.component.MessageText
 import com.seekmax.assessment.ui.screen.BottomNavigationScreens
 import com.seekmax.assessment.ui.theme.button
@@ -137,11 +138,11 @@ fun ShowJobDetail(navController: NavController, job: JobQuery.Job, viewModel: Jo
                         }
                     }
                     Spacer(modifier = Modifier.size(20.dp))
-                    TextWithLeftImage(R.drawable.ic_company, "Company Name: ${job.company.name}")
-                    TextWithLeftImage(R.drawable.ic_location, "Location: ${job.location}")
+                    TextWithLeftImage(R.drawable.ic_company, "${stringResource(id = R.string.company_name)} ${job.company.name}")
+                    TextWithLeftImage(R.drawable.ic_location, "${stringResource(id = R.string.location)} ${job.location}")
                     TextWithLeftImage(
                         R.drawable.ic_salary,
-                        "Salary: ${job.salaryRange.min} - ${job.salaryRange.max}"
+                        "${stringResource(id = R.string.salary)} ${job.salaryRange.min} - ${job.salaryRange.max}"
                     )
                     TextWithLeftImage(R.drawable.ic_info, job.description)
                     //if (!jobAppliedState) {
@@ -169,9 +170,9 @@ fun ShowJobDetail(navController: NavController, job: JobQuery.Job, viewModel: Jo
                             ) else ButtonDefaults.buttonColors(containerColor = button)
                         ) {
                             if (jobAppliedState)
-                                Text("ALREADY APPLIED", color = Color.Black)
+                                Text(stringResource(id = R.string.already_applied), color = Color.Black)
                             else
-                                Text("APPLY", color = Color.White)
+                                Text(stringResource(id = R.string.apply), color = Color.White)
                         }
                     }
                     // }

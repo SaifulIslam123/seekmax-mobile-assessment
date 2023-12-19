@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.seekmax.assessment.JobQuery
 import com.seekmax.assessment.USER_TOKEN
+import com.seekmax.assessment.repository.JobDetailRepository
 import com.seekmax.assessment.repository.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

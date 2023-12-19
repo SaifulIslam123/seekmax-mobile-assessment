@@ -1,11 +1,10 @@
-package com.seekmax.assessment.ui.screen.myjobs
+package com.seekmax.assessment.repository
 
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.api.Optional
 import com.seekmax.assessment.ERROR_MESSAGE
 import com.seekmax.assessment.MyJobsQuery
 import com.seekmax.assessment.fragment.JobInfo
-import com.seekmax.assessment.repository.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

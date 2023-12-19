@@ -1,19 +1,15 @@
-package com.seekmax.assessment.ui.screen.jobdetail
+package com.seekmax.assessment.repository
 
-import android.util.Log
 import com.apollographql.apollo3.ApolloClient
 import com.apollographql.apollo3.exception.ApolloException
-import com.apollographql.apollo3.network.http.HttpInfo
 import com.seekmax.assessment.ApplyMutation
 import com.seekmax.assessment.ERROR_MESSAGE
 import com.seekmax.assessment.JobQuery
-import com.seekmax.assessment.repository.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.onCompletion
 import javax.inject.Inject
 
 class JobDetailRepository @Inject constructor(private val apolloClient: ApolloClient) {

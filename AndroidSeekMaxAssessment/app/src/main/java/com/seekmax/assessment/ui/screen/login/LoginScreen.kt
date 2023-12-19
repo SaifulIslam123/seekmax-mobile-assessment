@@ -1,6 +1,5 @@
 package com.seekmax.assessment.ui.screen.login
 
-import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,16 +36,17 @@ import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.seekmax.assessment.R
 import com.seekmax.assessment.repository.NetworkResult
-import com.seekmax.assessment.ui.ProgressHelper
+import com.seekmax.assessment.ui.component.ProgressHelper
 import com.seekmax.assessment.ui.screen.BottomNavigationScreens
 import com.seekmax.assessment.ui.theme.button
 
@@ -87,7 +87,7 @@ fun LoginScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 colors = ButtonDefaults.buttonColors(containerColor = button)
             ) {
-                Text("LOGIN", color = Color.White)
+                Text(stringResource(id = R.string.login), color = Color.White)
             }
         }
     }
@@ -137,8 +137,8 @@ fun LoginField(
     value: String,
     onChange: (String) -> Unit,
     modifier: Modifier = Modifier,
-    label: String = "Login",
-    placeholder: String = "Enter your Login"
+    label: String = stringResource(id = R.string.username),
+    placeholder: String = stringResource(id = R.string.username_hint)
 ) {
 
     val focusManager = LocalFocusManager.current
@@ -172,8 +172,8 @@ fun PasswordField(
     onChange: (String) -> Unit,
     submit: () -> Unit,
     modifier: Modifier = Modifier,
-    label: String = "Password",
-    placeholder: String = "Enter your Password"
+    label: String = stringResource(id = R.string.password),
+    placeholder: String = stringResource(id = R.string.password_hint)
 ) {
 
     var isPasswordVisible by remember { mutableStateOf(false) }

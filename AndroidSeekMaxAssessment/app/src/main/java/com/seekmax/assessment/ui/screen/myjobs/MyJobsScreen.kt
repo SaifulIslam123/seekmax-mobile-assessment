@@ -4,21 +4,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.seekmax.assessment.R
 import com.seekmax.assessment.repository.NetworkResult
-import com.seekmax.assessment.ui.ProgressHelper
+import com.seekmax.assessment.ui.component.ProgressHelper
 import com.seekmax.assessment.ui.component.MessageText
 import com.seekmax.assessment.ui.component.JobList
-import com.seekmax.assessment.ui.component.NonLoginView
+import com.seekmax.assessment.ui.component.LoginUi
 
 @Composable
 fun MyJobsScreen(navController: NavController) {
     val viewModel: MyJobsViewModel = hiltViewModel()
     if (viewModel.isUserLoggedIn()) {
         ShowMyJobList(navController, viewModel)
-    } else NonLoginView(
+    } else LoginUi(
         navController
     )
 }
@@ -37,7 +39,7 @@ fun ShowMyJobList(navController: NavController, viewModel: MyJobsViewModel) {
                 if (it.isNotEmpty())
                     JobList(navController = navController, jobList = it, false)
                 else
-                    MessageText(text = "NO JOB FOUND")
+                    MessageText(text = stringResource(id = R.string.no_job_found))
             }
         }
 

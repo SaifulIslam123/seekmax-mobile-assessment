@@ -2,10 +2,8 @@ package com.seekmax.assessment.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -15,13 +13,15 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import com.seekmax.assessment.R
 import com.seekmax.assessment.RELOAD_DATA
 import com.seekmax.assessment.repository.NetworkResult
-import com.seekmax.assessment.ui.ProgressHelper
+import com.seekmax.assessment.ui.component.ProgressHelper
 import com.seekmax.assessment.ui.component.JobList
 import com.seekmax.assessment.ui.component.MessageText
 import com.seekmax.assessment.ui.theme.backgroundSecondary
@@ -60,7 +60,7 @@ fun HomeScreen(navController: NavController) {
                         .padding(top = 40.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
                     value = searchStateFlow,
                     onValueChange = { viewModel.searchStateFlow.value = it },
-                    placeholder = { Text(text = "Search Job") })
+                    placeholder = { Text(text = stringResource(id = R.string.search_job)) })
 
                 when (activeJobList) {
                     is NetworkResult.Success -> {

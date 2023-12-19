@@ -1,4 +1,4 @@
-package com.seekmax.assessment.ui
+package com.seekmax.assessment.ui.component
 
 import android.app.AlertDialog
 import android.content.Context

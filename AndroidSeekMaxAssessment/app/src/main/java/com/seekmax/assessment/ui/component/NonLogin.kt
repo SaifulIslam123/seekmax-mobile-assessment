@@ -16,13 +16,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.seekmax.assessment.R
 import com.seekmax.assessment.ui.screen.BottomNavigationScreens
 import com.seekmax.assessment.ui.theme.button
 
 @Composable
-fun NonLoginView(navController: NavController) {
+fun LoginUi(navController: NavController) {
     Column(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -30,10 +32,13 @@ fun NonLoginView(navController: NavController) {
             .fillMaxSize()
             .padding(horizontal = 30.dp)
     ) {
-        Text(text = "Be seen with a Jobstreet profile", style = MaterialTheme.typography.button)
+        Text(
+            text = stringResource(id = R.string.jobstreet_title),
+            style = MaterialTheme.typography.button
+        )
         Spacer(modifier = Modifier.height(20.dp))
         Text(
-            text = "Receive job opportunities, manage your resumes and apply for roles faster",
+            text = stringResource(id = R.string.jobstreet_detail),
             style = MaterialTheme.typography.body1
         )
         Spacer(modifier = Modifier.height(30.dp))
@@ -45,7 +50,7 @@ fun NonLoginView(navController: NavController) {
             modifier = Modifier.fillMaxWidth(),
             colors = ButtonDefaults.buttonColors(containerColor = button)
         ) {
-            Text("Login", color = Color.White)
+            Text(stringResource(id = R.string.login), color = Color.White)
         }
     }
 }

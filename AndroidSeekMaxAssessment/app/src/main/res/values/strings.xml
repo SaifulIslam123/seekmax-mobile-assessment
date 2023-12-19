@@ -1,4 +1,29 @@
 <resources>
     <string name="app_name">SeekMax Mobile App</string>
     <string name="title_activity_compose_main">@string/app_name</string>
+    <string name="jobstreet_title">Be seen with a Jobstreet profile</string>
+    <string name="jobstreet_detail">Receive job opportunities, manage your resumes and apply for roles faster</string>
+    <string name="login">LOGIN</string>
+    <string name="search_job">Search Job</string>
+    <string name="company_name">Company Name:</string>
+    <string name="location">Location:</string>
+    <string name="salary">Salary:</string>
+    <string name="already_applied">ALREADY APPLIED</string>
+    <string name="apply">APPLY</string>
+    <string name="username">User Name</string>
+    <string name="username_hint">Enter your User Name</string>
+    <string name="password">Password</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="no_job_found">NO JOB FOUND</string>
+    <string name="username_update_message">User name update successful</string>
+    <string name="password_change_message">Password change successful</string>
+    <string name="logout">LOGOUT</string>
+    <string name="update_password_btn_text">UPDATE PASSWORD</string>
+    <string name="confirm_password_hint">Enter nonfirm password</string>
+    <string name="new_password_hint">Enter new password</string>
+    <string name="user_name_hint">Enter Name</string>
+    <string name="update_password_title">Update Password</string>
+    <string name="username_btn_text">UPDATE NAME</string>
+    <string name="username_title">Update Name</string>
+
 </resources>

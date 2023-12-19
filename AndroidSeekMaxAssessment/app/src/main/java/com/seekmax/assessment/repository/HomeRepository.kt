@@ -1,17 +1,12 @@
-package com.seekmax.assessment.ui.screen.home
+package com.seekmax.assessment.repository
 
-import android.app.appsearch.exceptions.AppSearchException
-import android.util.Log
 import com.apollographql.apollo3.ApolloClient
-import com.apollographql.apollo3.api.ApolloResponse
-import com.apollographql.apollo3.api.Error
 import com.apollographql.apollo3.api.Optional
 import com.apollographql.apollo3.exception.ApolloException
 import com.seekmax.assessment.ActiveQuery
 import com.seekmax.assessment.ERROR_MESSAGE
 import com.seekmax.assessment.SearchQuery
 import com.seekmax.assessment.fragment.JobInfo
-import com.seekmax.assessment.repository.NetworkResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
