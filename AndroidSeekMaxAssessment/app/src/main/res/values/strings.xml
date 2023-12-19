@@ -19,7 +19,7 @@
     <string name="password_change_message">Password change successful</string>
     <string name="logout">LOGOUT</string>
     <string name="update_password_btn_text">UPDATE PASSWORD</string>
-    <string name="confirm_password_hint">Enter nonfirm password</string>
+    <string name="confirm_password_hint">Enter confirm password</string>
     <string name="new_password_hint">Enter new password</string>
     <string name="user_name_hint">Enter Name</string>
     <string name="update_password_title">Update Password</string>
